@@ -88,18 +88,25 @@ Car.prototype.drive = function (distance){
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby() {
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+};
 
+
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function (){
+  return `Playing with ${this.favoriteToy}.`;
 }
 
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1.  If in globel scope, the value will be the global console. We don't want this. 
+  2. In implicit binding, everything created from the left of the dot, gets outputted with 'this' keyword. 
+  3. In new binding, 'this' keyword is referencing the specific element of the object that is created. 
+  4. In explicit binding, uses .call, .apply, .bind to override what they 'this' keyword points to. can make changes or bind things together in code. 
 */
 
 ///////// END OF CHALLENGE /////////
